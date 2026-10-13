@@ -30,7 +30,7 @@ if(url.pathname==='/auth/me'&&request.method==='GET')return json(ok?{authenticat
 if(url.pathname==='/auth/logout'&&request.method==='POST'){if(request.headers.get('Origin')!==BASE)return json({error:'Invalid origin'},403);return json({ok:true},200,{'Set-Cookie':cookie('pm_session','',0)});}
 if(url.pathname==='/api/products'&&request.method==='OPTIONS'){if(request.headers.get('Origin')!==BASE)return json({error:'Invalid origin'},403);return new Response(null,{status:204,headers:{...cors,'Access-Control-Allow-Methods':'GET, PUT, OPTIONS','Access-Control-Allow-Headers':'Content-Type'}});}
 if(url.pathname==='/api/products'&&(request.method==='GET'||request.method==='PUT')){
-if(request.headers.get('Origin')!==BASE)return json({error:'Invalid origin'},403);
+if(request.method==='PUT'&&request.headers.get('Origin')!==BASE)return json({error:'Invalid origin'},403);
 if(!ok)return json({error:'Unauthorized'},401,cors);
 if(!env.GITHUB_TOKEN)return json({error:'GITHUB_TOKEN missing'},503,cors);
 if(request.method==='GET'){const r=await github('products.json',env);if(!r.ok)return json({error:'GitHub read failed'},502,cors);const f=await r.json();return json({data:JSON.parse(new TextDecoder().decode(unb64(f.content.replace(/\s/g,'').replace(/\+/g,'-').replace(/\//g,'_')))),sha:f.sha},200,cors);}
