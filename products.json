@@ -1,20 +1,172 @@
 {
   "contact": "운영자 문의 이메일을 등록하세요",
   "products": [
-    {"id": 15, "name": "미니 무선 청소기", "category": "가전·디지털", "middle": "생활가전", "sub": "청소기", "price": 0, "description": "영상 속 청소 아이템", "tags": "청소", "image": "", "video": "", "link": ""},
-    {"id": 14, "name": "접이식 휴대폰 거치대", "category": "가전·디지털", "middle": "모바일", "sub": "거치대", "price": 0, "image": "", "video": "", "link": ""},
-    {"id": 13, "name": "LED 무드등", "category": "홈·인테리어", "middle": "조명", "sub": "무드등", "price": 0, "image": "", "video": "", "link": ""},
-    {"id": 12, "name": "주방 수납 선반", "category": "생활·주방", "middle": "주방정리", "sub": "수납", "price": 0, "image": "", "video": "", "link": ""},
-    {"id": 11, "name": "실리콘 조리도구", "category": "생활·주방", "middle": "조리도구", "sub": "주걱", "price": 0, "image": "", "video": "", "link": ""},
-    {"id": 10, "name": "여행용 파우치", "category": "패션·여행", "middle": "여행소품", "sub": "파우치", "price": 0, "image": "", "video": "", "link": ""},
-    {"id": 9, "name": "욕실 틈새 선반", "category": "생활·주방", "middle": "욕실", "sub": "정리", "price": 0, "image": "", "video": "", "link": ""},
-    {"id": 8, "name": "노트북 스탠드", "category": "가전·디지털", "middle": "PC액세서리", "sub": "스탠드", "price": 0, "image": "", "video": "", "link": ""},
-    {"id": 7, "name": "자동 디스펜서", "category": "생활·주방", "middle": "욕실", "sub": "디스펜서", "price": 0, "image": "", "video": "", "link": ""},
-    {"id": 6, "name": "침대 옆 협탁", "category": "홈·인테리어", "middle": "가구", "sub": "협탁", "price": 0, "image": "", "video": "", "link": ""},
-    {"id": 5, "name": "휴대용 보조배터리", "category": "가전·디지털", "middle": "모바일", "sub": "충전", "price": 0, "image": "", "video": "", "link": ""},
-    {"id": 4, "name": "차량용 수납함", "category": "자동차", "middle": "차량용품", "sub": "수납", "price": 0, "image": "", "video": "", "link": ""},
-    {"id": 3, "name": "접이식 빨래바구니", "category": "생활·주방", "middle": "세탁", "sub": "바구니", "price": 0, "image": "", "video": "", "link": ""},
-    {"id": 2, "name": "캠핑 랜턴", "category": "스포츠·캠핑", "middle": "캠핑", "sub": "랜턴", "price": 0, "image": "", "video": "", "link": ""},
-    {"id": 1, "name": "정리용 압축팩", "category": "생활·주방", "middle": "수납", "sub": "압축팩", "price": 0, "image": "", "video": "", "link": ""}
+    {
+      "id": 15,
+      "name": "미니 무선 청소기",
+      "category": "가전·디지털",
+      "middle": "생활가전",
+      "sub": "청소기",
+      "price": 0,
+      "description": "영상 속 청소 아이템",
+      "tags": "청소",
+      "image": "",
+      "video": "",
+      "link": "https://link.coupang.com/a/hOpbvxEbQW"
+    },
+    {
+      "id": 14,
+      "name": "접이식 휴대폰 거치대",
+      "category": "가전·디지털",
+      "middle": "모바일",
+      "sub": "거치대",
+      "price": 0,
+      "image": "",
+      "video": "",
+      "link": ""
+    },
+    {
+      "id": 13,
+      "name": "LED 무드등",
+      "category": "홈·인테리어",
+      "middle": "조명",
+      "sub": "무드등",
+      "price": 0,
+      "image": "",
+      "video": "",
+      "link": ""
+    },
+    {
+      "id": 12,
+      "name": "주방 수납 선반",
+      "category": "생활·주방",
+      "middle": "주방정리",
+      "sub": "수납",
+      "price": 0,
+      "image": "",
+      "video": "",
+      "link": ""
+    },
+    {
+      "id": 11,
+      "name": "실리콘 조리도구",
+      "category": "생활·주방",
+      "middle": "조리도구",
+      "sub": "주걱",
+      "price": 0,
+      "image": "",
+      "video": "",
+      "link": ""
+    },
+    {
+      "id": 10,
+      "name": "여행용 파우치",
+      "category": "패션·여행",
+      "middle": "여행소품",
+      "sub": "파우치",
+      "price": 0,
+      "image": "",
+      "video": "",
+      "link": ""
+    },
+    {
+      "id": 9,
+      "name": "욕실 틈새 선반",
+      "category": "생활·주방",
+      "middle": "욕실",
+      "sub": "정리",
+      "price": 0,
+      "image": "",
+      "video": "",
+      "link": ""
+    },
+    {
+      "id": 8,
+      "name": "노트북 스탠드",
+      "category": "가전·디지털",
+      "middle": "PC액세서리",
+      "sub": "스탠드",
+      "price": 0,
+      "image": "",
+      "video": "",
+      "link": ""
+    },
+    {
+      "id": 7,
+      "name": "자동 디스펜서",
+      "category": "생활·주방",
+      "middle": "욕실",
+      "sub": "디스펜서",
+      "price": 0,
+      "image": "",
+      "video": "",
+      "link": ""
+    },
+    {
+      "id": 6,
+      "name": "침대 옆 협탁",
+      "category": "홈·인테리어",
+      "middle": "가구",
+      "sub": "협탁",
+      "price": 0,
+      "image": "",
+      "video": "",
+      "link": ""
+    },
+    {
+      "id": 5,
+      "name": "휴대용 보조배터리",
+      "category": "가전·디지털",
+      "middle": "모바일",
+      "sub": "충전",
+      "price": 0,
+      "image": "",
+      "video": "",
+      "link": ""
+    },
+    {
+      "id": 4,
+      "name": "차량용 수납함",
+      "category": "자동차",
+      "middle": "차량용품",
+      "sub": "수납",
+      "price": 0,
+      "image": "",
+      "video": "",
+      "link": ""
+    },
+    {
+      "id": 3,
+      "name": "접이식 빨래바구니",
+      "category": "생활·주방",
+      "middle": "세탁",
+      "sub": "바구니",
+      "price": 0,
+      "image": "",
+      "video": "",
+      "link": ""
+    },
+    {
+      "id": 2,
+      "name": "캠핑 랜턴",
+      "category": "스포츠·캠핑",
+      "middle": "캠핑",
+      "sub": "랜턴",
+      "price": 0,
+      "image": "",
+      "video": "",
+      "link": ""
+    },
+    {
+      "id": 1,
+      "name": "정리용 압축팩",
+      "category": "생활·주방",
+      "middle": "수납",
+      "sub": "압축팩",
+      "price": 0,
+      "image": "",
+      "video": "",
+      "link": ""
+    }
   ]
 }
