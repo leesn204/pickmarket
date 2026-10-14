@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#090b10"><title>픽마켓 릴스 쇼핑</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;background:#090b10;color:#fff;font-family:system-ui,-apple-system,"Malgun Gothic",sans-serif}body{overflow:hidden}a{color:inherit;text-decoration:none}header{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:calc(12px + env(safe-area-inset-top)) 17px 12px;background:linear-gradient(#0009,transparent)}header a{font-weight:800}header span{font-size:13px;color:#ddd}.feed{height:100dvh;overflow-y:auto;scroll-snap-type:y mandatory;overscroll-behavior-y:contain;scrollbar-width:none}.feed::-webkit-scrollbar{display:none}.slide{position:relative;height:100dvh;width:100%;scroll-snap-align:start;scroll-snap-stop:always;display:grid;place-items:center;background:#080808}.slide video{height:100%;width:100%;object-fit:contain}.shade{pointer-events:none;position:absolute;inset:55% 0 0;background:linear-gradient(transparent,#000b)}.info{position:absolute;bottom:calc(22px + env(safe-area-inset-bottom));left:18px;right:85px;z-index:2;text-shadow:0 1px 4px #000b}.info h2{font-size:19px;margin:0 0 9px}.info p{font-size:12px;line-height:1.5;margin:0 0 13px;color:#ddd}.buy{display:inline-block;background:#f04467;border-radius:12px;padding:12px 16px;font-weight:800;font-size:14px;text-shadow:none}.side{position:absolute;right:13px;bottom:calc(35px + env(safe-area-inset-bottom));z-index:2;display:grid;gap:12px}.side button{border:1px solid #ffffff55;border-radius:50%;background:#0008;color:white;width:49px;height:49px;font-size:21px;cursor:pointer}.status{position:fixed;inset:0;display:grid;place-items:center;padding:30px;text-align:center;color:#ddd}.hint{position:absolute;top:20%;left:50%;transform:translateX(-50%);font-size:12px;color:#fffd;background:#0008;border-radius:20px;padding:8px 12px;pointer-events:none}@media(min-width:700px){.slide video{max-width:520px}.info{left:max(18px,calc(50% - 240px));right:calc(50% - 180px)}.side{right:max(15px,calc(50% - 245px))}}
+</style></head><body><header><a href="./">← 픽마켓</a><strong>릴스 쇼핑</strong><span id="counter"></span></header><main id="feed" class="feed"><div class="status">영상을 불러오는 중...</div></main>
+<script>
+'use strict';
+const feed=document.getElementById('feed'),counter=document.getElementById('counter');
+const safe=(value,kind)=>{try{const u=new URL(value,location.href);if(u.protocol!=='https:'&&u.protocol!=='http:')return '';if(kind==='shop'&&u.protocol!=='https:')return '';return u.href}catch{return ''}};
+let observer;
+function show(items){
+ feed.replaceChildren();if(!items.length){const d=document.createElement('div');d.className='status';d.textContent='아직 등록된 릴스 영상이 없습니다. 관리자에서 상품 영상을 등록해 주세요.';feed.append(d);return}
+ counter.textContent='1 / '+items.length;
+ items.forEach((item,i)=>{
+  const section=document.createElement('section');section.className='slide';
+  const video=document.createElement('video');video.src=safe(item.video,'video');video.controls=true;video.playsInline=true;video.preload=i===0?'metadata':'none';video.loop=true;video.setAttribute('aria-label',item.name+' 영상');section.append(video);
+  const shade=document.createElement('div');shade.className='shade';section.append(shade);
+  const info=document.createElement('div');info.className='info';const title=document.createElement('h2');title.textContent=item.name;info.append(title);
+  if(item.description){const desc=document.createElement('p');desc.textContent=item.description;info.append(desc)}
+  const link=safe(item.link,'shop');if(link){const buy=document.createElement('a');buy.className='buy';buy.href=link;buy.target='_blank';buy.rel='noopener noreferrer sponsored';buy.textContent='쿠팡에서 구매하기 ↗';info.append(buy)}section.append(info);
+  const side=document.createElement('div');side.className='side';const mute=document.createElement('button');mute.textContent='🔊';mute.title='소리 켜기/끄기';mute.setAttribute('aria-label','소리 켜기/끄기');video.muted=false;mute.onclick=()=>{video.muted=!video.muted;mute.textContent=video.muted?'🔇':'🔊'};side.append(mute);section.append(side);
+  video.addEventListener('click',()=>{if(video.paused)video.play().catch(()=>{});else video.pause()});
+  feed.append(section)
+ });
+ const slides=[...feed.querySelectorAll('.slide')];observer=new IntersectionObserver(entries=>{for(const e of entries){const v=e.target.querySelector('video');if(e.isIntersecting&&e.intersectionRatio>=.65){counter.textContent=(slides.indexOf(e.target)+1)+' / '+slides.length;v.muted=true;const b=e.target.querySelector('.side button');if(b)b.textContent='🔇';v.play().catch(()=>{})}else v.pause()}},{root:feed,threshold:[0,.65,1]});slides.forEach(s=>observer.observe(s));
+}
+fetch('./products.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('상품 정보 조회 실패');return r.json()}).then(data=>{const items=(Array.isArray(data)?data:Array.isArray(data.products)?data.products:[]).filter(x=>x&&safe(x.video,'video'));show(items)}).catch(()=>{feed.replaceChildren();const d=document.createElement('div');d.className='status';d.textContent='상품 정보를 불러오지 못했습니다. 잠시 후 새로고침해 주세요.';feed.append(d)});
+</script></body></html>
