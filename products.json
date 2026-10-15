@@ -175,9 +175,11 @@
       "middle": "캠핑",
       "sub": "랜턴",
       "price": 0,
-      "image": "",
+      "image": "./images/product-86506524-4b07-4dd2-b980-386ecbbcfe3d.png",
       "video": "",
-      "link": ""
+      "link": "",
+      "tags": "",
+      "description": ""
     },
     {
       "id": 1,
